@@ -1,4 +1,4 @@
-package com.wxd.myutils.Utils.Utils;
+package com.wxd.myutils.Utils;
 
 import android.text.InputFilter;
 import android.text.Spanned;

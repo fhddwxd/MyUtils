@@ -1,4 +1,4 @@
-package com.wxd.myutils.Utils.Utils;
+package com.wxd.myutils.inter;
 
 public interface RetryNetwork {
 	/**

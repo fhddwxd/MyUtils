@@ -1,4 +1,4 @@
-package com.wxd.myutils.Utils.Utils;
+package com.wxd.myutils.Utils;
 
 
 public class Base64Decoder {

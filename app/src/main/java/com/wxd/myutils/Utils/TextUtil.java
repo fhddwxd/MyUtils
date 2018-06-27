@@ -1,4 +1,4 @@
-package com.wxd.myutils.Utils.Utils;
+package com.wxd.myutils.Utils;
 
 /**
  * 类或接口的描述信息

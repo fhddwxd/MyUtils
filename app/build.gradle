@@ -25,6 +25,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -40,5 +45,8 @@ dependencies {
     implementation files('libs/bcprov-jdk15-140.jar')
     implementation files('libs/sun.misc.BASE64Decoder.jar')
     implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife-annotations:8.8.1'
+    implementation 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation files('libs/xUtils-2.6.14.jar')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

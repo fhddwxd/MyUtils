@@ -1,4 +1,4 @@
-package com.wxd.myutils.Utils.Utils;
+package com.wxd.myutils.Utils;
 
 /**
  * Created by admin on 2018/3/19.
