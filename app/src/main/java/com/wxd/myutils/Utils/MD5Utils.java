@@ -24,5 +24,9 @@ public class MD5Utils {
 	    return hex.toString().toLowerCase();
 
 	}
-	
+	public static void main(String[] str){
+		String s = "11231231";
+		String a = getmd5(s);
+		System.out.println(a);
+	}
 }

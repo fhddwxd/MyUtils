@@ -105,7 +105,7 @@ public class ClockView extends View {
             }
         };
         timer = new Timer();
-        timer.schedule(timerTask, 3000, 250);
+        timer.schedule(timerTask, 250, 250);
     }
 
     private void timeStart() {

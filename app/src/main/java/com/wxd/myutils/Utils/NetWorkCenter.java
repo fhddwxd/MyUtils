@@ -28,12 +28,12 @@ public class NetWorkCenter {
 	public static boolean isWifi(Context context) {
 		ConnectivityManager connectivityManager = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-		if (activeNetInfo != null
-				&& activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-			return true;
+		NetworkInfo activeNetInfo = null;
+		if(connectivityManager!=null){
+			activeNetInfo=connectivityManager.getActiveNetworkInfo();
 		}
-		return false;
+		return (activeNetInfo != null
+				&& activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI);
 	}
 
 	/**
@@ -45,12 +45,17 @@ public class NetWorkCenter {
 	public static boolean is3G(Context context) {
 		ConnectivityManager connectivityManager = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-		if (activeNetInfo != null
-				&& activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-			return true;
+		if(connectivityManager!=null){
+			NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+			return (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE);
+		}else {
+			return false;
 		}
-		return false;
+//		if (activeNetInfo != null
+//				&& activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+//			return true;
+//		}
+//		return false;
 	}
 
 	/**
@@ -62,8 +67,10 @@ public class NetWorkCenter {
 		if (context != null) {
 			ConnectivityManager mConnectivityManager = (ConnectivityManager) context
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo mNetworkInfo = mConnectivityManager
-					.getActiveNetworkInfo();
+			NetworkInfo mNetworkInfo =null;
+			if(mConnectivityManager!=null){
+				mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+			}
 			if (mNetworkInfo != null) {
 				return mNetworkInfo.isAvailable();
 			}
@@ -98,8 +105,10 @@ public class NetWorkCenter {
 		public void onReceive(Context context, Intent intent) {
 			ConnectivityManager connectivityManager = (ConnectivityManager) context
 					.getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo activeNetInfo = connectivityManager
-					.getActiveNetworkInfo();
+			NetworkInfo activeNetInfo=null;
+			if(connectivityManager!=null){
+				activeNetInfo=connectivityManager.getActiveNetworkInfo();
+			}
 			// NetworkInfo mobNetInfo =
 			// connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 			if (activeNetInfo != null) {
