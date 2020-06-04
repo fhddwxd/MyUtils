@@ -2,27 +2,25 @@ package com.wxd.myutils
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.ServiceConnection
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.View
-import com.wxd.myutils.Utils.MD5
-import com.wxd.myutils.Views.ClockView
-import com.wxd.myutils.Views.WaveHelper
-import com.wxd.myutils.Views.WaveView
-import org.eclipse.paho.android.service.MqttAndroidClient
+import com.wxd.myutils.utils.MD5
+import com.wxd.myutils.views.ClockView
+import com.wxd.myutils.views.WaveHelper
+import com.wxd.myutils.views.WaveView
 import org.eclipse.paho.client.mqttv3.*
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 import android.content.ComponentName
 import android.os.*
-import android.support.v4.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 
 
 class MainActivity : AppCompatActivity() {
-//    private var clockView:ClockView?=null
+    private var clockView:ClockView?=null
     var waveView:WaveView?=null
     var waveHelper:WaveHelper?=null
     var mqttClient:MqttClient?=null
@@ -75,8 +73,8 @@ class MainActivity : AppCompatActivity() {
 //        var intent = Intent(this@MainActivity,MqttService::class.java)
 //        bindService(intent,mConnection,Context.BIND_AUTO_CREATE)
 //        initMqtt()
-//        clockView = findViewById(R.id.myClock)
-//        clockView!!.setCalendar()
+        clockView = findViewById(R.id.myClock)
+        clockView!!.setCalendar()
     }
 
     override fun onResume() {
@@ -125,6 +123,8 @@ class MainActivity : AppCompatActivity() {
 
         } catch (e: MqttException) {
             Log.d("Mqtt","MQTTClient异常" + e.message)
+        }catch (e:SecurityException){
+            Log.d("Mqtt","SecurityException!!")
         }
 
     }
